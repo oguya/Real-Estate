@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Real Estate</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">hello world</string>
+
+    <!-- nav drawer -->
+    <string name="drawer_open">Slider Menu Open</string>
+    <string name="drawer_close">Slider Menu Close</string>
+    <string name="drawer_counter">25</string>
+    <string name="drawer_title">Homes for Sale</string>
+
+    <!-- nav drawer menu items -->
+    <string-array name="nav_drawer_items">
+        <item>Homes for Sale</item>
+        <item>Homes for Rent</item>
+        <item>Commercial properties</item>
+    </string-array>
+
+    <!-- nav drawer item icons -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_pages</item>
+    </array>
+
+    <!-- img content desc -->
+    <string name="img_content_desc">Image</string>
+
+
+    <!-- search -->
+    <string name="title_activity_search">Search</string>
+    <string name="action_search">Search</string>
+
+    <!--search tabs title-->
+    <string-array name="search_tabs_title">
+        <item>For Sale</item>
+        <item>For Rent</item>
+        <item>Commercial</item>
+    </string-array>
+
+</resources>
