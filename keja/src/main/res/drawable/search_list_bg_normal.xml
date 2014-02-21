@@ -6,6 +6,6 @@
     <gradient
         android:startColor="@color/search_list_background"
         android:endColor="@color/search_list_background"
-        android:angle="270"/>
+        android:angle="90"/>
 
 </shape>

@@ -131,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new ForSaleFrag();
                 break;
             case 1: //Homes for Rent
-                fragment = new ForRentFrag(dbAdapter);
+                fragment = new ForRentFrag();
                 break;
             case 2: //commercial properties
                 fragment = new CommercialFrag();

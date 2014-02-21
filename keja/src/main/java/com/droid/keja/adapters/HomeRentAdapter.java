@@ -1,7 +1,7 @@
 package com.droid.keja.adapters;
 
 import android.app.Activity;
-import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +47,7 @@ public class HomeRentAdapter extends ArrayAdapter<HomeRent> {
 
             ViewHolder viewHolder = new ViewHolder();
             viewHolder.home_img = (ImageView)rowView.findViewById(R.id.list_home_img);
+            viewHolder.rent_txt = (TextView)rowView.findViewById(R.id.home_rent_amount);
             viewHolder.name_txt = (TextView)rowView.findViewById(R.id.home_name);
             viewHolder.location_txt = (TextView)rowView.findViewById(R.id.home_location);
             viewHolder.br_ba_txt = (TextView)rowView.findViewById(R.id.home_br_ba);
@@ -57,10 +58,11 @@ public class HomeRentAdapter extends ArrayAdapter<HomeRent> {
         ViewHolder viewHolder = (ViewHolder)rowView.getTag();
 
         String home_name = homeRentList.get(position).getName();
+        viewHolder.rent_txt.setText("KES "+homeRentList.get(position).getRent()+" /mo");
         viewHolder.name_txt.setText(home_name);
         viewHolder.home_img.setImageResource(R.drawable.item_pic);
         viewHolder.location_txt.setText(homeRentList.get(position).getLocation());
-        String br_ba = homeRentList.get(position).getBedrooms()+" / "+homeRentList.get(position).getBaths();
+        String br_ba = homeRentList.get(position).getBedrooms()+"br / "+homeRentList.get(position).getBaths()+"ba";
         viewHolder.br_ba_txt.setText(br_ba);
         viewHolder.type_txt.setText(homeRentList.get(position).getType());
 

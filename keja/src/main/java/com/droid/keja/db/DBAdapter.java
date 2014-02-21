@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.webkit.WebChromeClient;
 
 import com.droid.keja.constants.Constants;
 import com.droid.keja.model.Commercial;
@@ -43,14 +44,14 @@ public class DBAdapter {
     //return all homes for rent
     public ArrayList<HomeRent> getHomesRent(){
         ArrayList<HomeRent> homeRentList = new ArrayList<HomeRent>();
-        String sql = "SELECT * FROM "+ Constants.TBL_HOMES;
+        String sql = "SELECT * FROM "+ Constants.TBL_HOMES+" where for_sale = 0";
         Cursor cursor = db.rawQuery(sql, null);
 
         if(cursor.moveToFirst()){
             do{
                 HomeRent homeRent = new HomeRent();
 
-                homeRent.setName(cursor.getString(cursor.getColumnIndex("name")));
+                homeRent.setName(cursor.getString(cursor.getColumnIndex("home_name")));
                 homeRent.setRent(cursor.getString(cursor.getColumnIndex("rent")));
                 homeRent.setLocation(cursor.getString(cursor.getColumnIndex("location")));
                 homeRent.setBedrooms(cursor.getString(cursor.getColumnIndex("bedrooms")));

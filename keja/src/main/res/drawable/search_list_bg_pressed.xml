@@ -7,7 +7,7 @@
     <gradient
         android:startColor="@color/search_list_background_pressed"
         android:endColor="@color/search_list_background_pressed"
-        android:angle="270"
+        android:angle="90"
     />
 
 </shape>

@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.droid.keja.R;
 import com.droid.keja.adapters.HomeRentAdapter;
@@ -31,11 +33,6 @@ public class ForRentFrag extends Fragment {
 
     public ForRentFrag(){}
 
-    public ForRentFrag(DBAdapter dbAdapter){
-        this.dbAdapter = dbAdapter;
-        this.dbAdapter.open();
-    }
-
     @Override
     public void onAttach(Activity activity){
         super.onAttach(activity);
@@ -48,16 +45,8 @@ public class ForRentFrag extends Fragment {
 
         //init ui here
         listView = (ListView)rootView.findViewById(R.id.home_rent_list);
-        listView.setOnItemClickListener(listListener);
         return rootView;
     }
-
-    private AdapterView.OnItemClickListener listListener = new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        }
-    };
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -70,20 +59,33 @@ public class ForRentFrag extends Fragment {
     public void onStart(){
         super.onStart();
 
+        dbAdapter = new DBAdapter(context);
+        dbAdapter.open();
         homeRentList = new ArrayList<HomeRent>();
         homeRentList = dbAdapter.getHomesRent();
+
+        listView = (ListView)context.findViewById(R.id.home_rent_list);
         listView.setAdapter(new HomeRentAdapter(this.context, homeRentList));
         listView.setOnItemClickListener(listListener);
     }
 
+    private AdapterView.OnItemClickListener listListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Toast.makeText(getActivity(), "item click: ", Toast.LENGTH_SHORT).show();
+        }
+    };
+
     @Override
     public void onResume(){
         super.onResume();
+        dbAdapter.open();
     }
 
     @Override
     public void onPause(){
         super.onPause();
+        dbAdapter.close();
     }
 
     @Override

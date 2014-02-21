@@ -3,7 +3,7 @@
 
     <item
         android:state_activated="false"
-        android:drawable="@drawable/search_list_bg_normal"/>
+        android:drawable="@drawable/search_list_bg_pressed"/>
 
     <item
         android:state_pressed="true"
