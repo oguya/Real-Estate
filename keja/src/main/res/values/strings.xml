@@ -40,4 +40,18 @@
         <item>Commercial</item>
     </string-array>
 
+    <!-- commercial list item details-->
+    <string name="property_name">Delta Corner</string>
+    <string name="property_location">Waiyaki way, Westlands</string>
+    <string name="property_size"> 2,500 – 6,000 sqft</string>
+    <string name="property_type">Refurbished Office Space</string>
+
+    <!--Home for Rent/Sale list item details-->
+    <string name="home_rent_amount">KES 70,000 / mo</string>
+    <string name="home_price">KES 7.5 mil</string>
+    <string name="home_name">Jasmine Court</string>
+    <string name="home_location">Ngong Rd, RaceCourse</string>
+    <string name="home_br_ba"> 2 br / 2 ba</string>
+    <string name="home_type">Apartment</string>
+
 </resources>

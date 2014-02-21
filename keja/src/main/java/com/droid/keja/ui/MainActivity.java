@@ -1,8 +1,11 @@
 package com.droid.keja.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -11,26 +14,23 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.droid.keja.R;
 import com.droid.keja.adapters.NavDrawerListAdapter;
+import com.droid.keja.db.DBAdapter;
 import com.droid.keja.model.NavDrawerItem;
 import com.droid.keja.ui.frags.CommercialFrag;
 import com.droid.keja.ui.frags.ForRentFrag;
 import com.droid.keja.ui.frags.ForSaleFrag;
+import com.droid.keja.utils.FirstRunInit;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -47,13 +47,20 @@ public class MainActivity extends ActionBarActivity {
     private ArrayList<NavDrawerItem> drawerItems;
     private NavDrawerListAdapter drawerListAdapter;
 
+    public DBAdapter dbAdapter;
+    private FirstRunInit firstRunInit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //check first run
+        checkFirstRun();
+
         actionBar = getSupportActionBar();
+        dbAdapter = new DBAdapter(this);
+        dbAdapter.open();
         prepDrawerMenu();
 
         if(savedInstanceState == null){
@@ -96,13 +103,19 @@ public class MainActivity extends ActionBarActivity {
             public void onDrawerClosed(View view){
                 actionBar.setTitle(drawerTitle);
                 //call onPrepareOptionsMenu() to show actionbar icons
-                invalidateOptionsMenu();
+                if(!(Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1))
+                    invalidateOptionsMenu();
+                else
+                    supportInvalidateOptionsMenu();
             }
 
             @Override
         public void onDrawerOpened(View view){
                 //call onPrepareOptionsMenu() to hide actionbar icons
-                invalidateOptionsMenu();
+                if(!(Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1))
+                    invalidateOptionsMenu();
+                else
+                    supportInvalidateOptionsMenu();
             }
         };
 
@@ -118,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
                 fragment = new ForSaleFrag();
                 break;
             case 1: //Homes for Rent
-                fragment = new ForRentFrag();
+                fragment = new ForRentFrag(dbAdapter);
                 break;
             case 2: //commercial properties
                 fragment = new CommercialFrag();
@@ -208,6 +221,40 @@ public class MainActivity extends ActionBarActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             //display view for selected nav drawer item
             displayDrawerView(position);
+        }
+    }
+
+    public void onPause(){
+        super.onPause();
+
+        dbAdapter.close();
+    }
+
+    public void onResume(){
+        super.onResume();
+
+        dbAdapter.open();
+    }
+
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+    }
+
+    private void checkFirstRun(){
+        SharedPreferences firstRunPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean firstRun = firstRunPrefs.getBoolean("FirstRun", true);
+
+        if(firstRun){
+            //copy db
+            Log.e(LOG_TAG, "First Run! initializing resources...");
+            firstRunInit = new FirstRunInit(this);
+            firstRunInit.copyDBFile();
+
+            firstRunPrefs.edit().putBoolean("FirstRun", false).commit();
+        }else{
+            Log.e(LOG_TAG, "First Run! all assets GREEN...");
+
         }
     }
 }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/list_home_img"
+            android:src="@drawable/item_pic"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:maxWidth="150dp"
+            android:maxHeight="150dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:focusable="true"
+            android:clickable="true"
+            android:contentDescription="@string/img_content_desc"
+            android:layout_gravity="center|fill" />
+
+        <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:layout_width="0dp"
+            android:layout_weight=".6"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/home_price"
+                android:text="@string/home_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/home_name"
+                android:text="@string/home_name"
+                android:layout_below="@id/home_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/home_location"
+                android:text="@string/home_location"
+                android:layout_below="@id/home_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/home_br_ba"
+                android:text="@string/home_br_ba"
+                android:layout_below="@id/home_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/extras_list_item"/>
+
+            <TextView
+                android:id="@+id/home_type"
+                android:text="@string/home_type"
+                android:layout_below="@id/home_br_ba"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/extras_list_item"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,11 +5,14 @@
     android:layout_height="match_parent"
     android:background="#CC0000">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="homes for rent"
-        android:id="@+id/textView"
-        android:layout_centerInParent="true"/>
+    <ListView
+        android:id="@+id/home_rent_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="@color/search_list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/search_list_selector"
+        android:background="@color/search_list_background"/>
+
 </RelativeLayout>
