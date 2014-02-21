@@ -12,6 +12,8 @@ public class HomeSale {
     private String type;
     private String desc;
     private String thumbnail;
+    private String lat;
+    private String lng;
 
     public HomeSale(){}
 
@@ -91,4 +93,19 @@ public class HomeSale {
         this.thumbnail = thumbnail;
     }
 
+    public void setLat(String lat){
+        this.lat = lat;
+    }
+
+    public String getLat(){
+        return this.lat;
+    }
+
+    public void setLng(String lng){
+        this.lng = lng;
+    }
+
+    public String getLng(){
+        return this.lng;
+    }
 }

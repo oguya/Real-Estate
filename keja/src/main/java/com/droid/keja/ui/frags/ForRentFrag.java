@@ -61,7 +61,7 @@ public class ForRentFrag extends Fragment {
 
         dbAdapter = new DBAdapter(context);
         dbAdapter.open();
-        homeRentList = new ArrayList<HomeRent>();
+//        homeRentList = new ArrayList<HomeRent>();
         homeRentList = dbAdapter.getHomesRent();
 
         listView = (ListView)context.findViewById(R.id.home_rent_list);

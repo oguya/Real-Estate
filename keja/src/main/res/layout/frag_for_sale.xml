@@ -2,14 +2,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ff49cc22">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="homes for sale"
-        android:id="@+id/textView"
-        android:layout_centerInParent="true"/>
+    <ListView
+        android:id="@+id/home_sale_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="@color/search_list_divider"
+        android:dividerHeight="1dp"
+        android:fastScrollEnabled="true"
+        android:fadeScrollbars="true"
+        android:listSelector="@drawable/search_list_selector"/>
+
 </RelativeLayout>

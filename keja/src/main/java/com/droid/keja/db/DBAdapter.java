@@ -72,6 +72,28 @@ public class DBAdapter {
     //return all homes for sale
     public ArrayList<HomeSale> getHomesSale(){
         ArrayList<HomeSale> homeSaleList = new ArrayList<HomeSale>();
+        String sql = "SELECT * FROM "+ Constants.TBL_HOMES+" where for_sale = 1";
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                HomeSale homeSale = new HomeSale();
+
+                homeSale.setName(cursor.getString(cursor.getColumnIndex("home_name")));
+                homeSale.setPrice(cursor.getString(cursor.getColumnIndex("price")));
+                homeSale.setLocation(cursor.getString(cursor.getColumnIndex("location")));
+                homeSale.setBedrooms(cursor.getString(cursor.getColumnIndex("bedrooms")));
+                homeSale.setBaths(cursor.getString(cursor.getColumnIndex("baths")));
+                homeSale.setType(cursor.getString(cursor.getColumnIndex("type")));
+                homeSale.setDesc(cursor.getString(cursor.getColumnIndex("desc")));
+                homeSale.setThumbnail(cursor.getString(cursor.getColumnIndex("thumbnail")));
+                homeSale.setLat(cursor.getString(cursor.getColumnIndex("lat")));
+                homeSale.setLng(cursor.getString(cursor.getColumnIndex("lng")));
+
+                homeSaleList.add(homeSale);
+            }while(cursor.moveToNext());
+            cursor.close();
+        }
 
         return homeSaleList;
     }
