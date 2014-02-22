@@ -74,13 +74,29 @@
                 android:id="@+id/section_home_sale_rent"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:layout_below="@id/home_thumbnail_pic"
-                android:background="@drawable/home_list_section_bg"
-                >
+                android:background="@drawable/home_list_section_bg">
+
+                <TextView
+                    android:text="@string/price_lbl"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/home_price_amount"
+                    android:text="@string/home_price"
+                    android:textSize="30sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"/>
+
 
             </LinearLayout>
 
@@ -90,14 +106,76 @@
                 android:id="@+id/section_home_location"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:layout_below="@id/section_home_sale_rent"
                 android:background="@drawable/home_list_section_bg">
 
+                <TextView
+                    android:text="@string/location_lbl"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:id="@+id/home_location"
+                    android:text="@string/home_location"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"/>
+
+                <!--directions & maps stuff-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <Button
+                        android:id="@+id/location_direction_btn"
+                        android:drawableLeft="@drawable/directions"
+                        android:text="@string/direction_lbl"
+                        android:layout_weight=".4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|center_horizontal"
+                        android:drawablePadding="3dp"
+                        android:layout_marginRight="10dp"
+                        android:paddingLeft="5dp"
+                        android:background="@drawable/locations_button_style"
+                        />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/black"/>
+
+                    <Button
+                        android:id="@+id/location_map_btn"
+                        android:drawableLeft="@drawable/map_route"
+                        android:text="@string/map_lbl"
+                        android:layout_weight=".4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center|center_horizontal"
+                        android:drawablePadding="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:paddingLeft="5dp"
+                        android:background="@drawable/locations_button_style"
+                        />
+
+                </LinearLayout>
+
             </LinearLayout>
+
+            <!-- breaking over to part 2 layout-->
+            <include layout="@layout/activity_homes_pt2"/>
 
         </RelativeLayout>
 

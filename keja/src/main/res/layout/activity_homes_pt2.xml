@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!-- home desc. section -->
+    <LinearLayout
+        android:id="@+id/section_home_desc"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:layout_below="@id/section_home_location"
+        android:background="@drawable/home_list_section_bg">
+
+        <TextView
+            android:id="@+id/home_desc_preview"
+            android:text="@string/home_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:drawableEnd="@drawable/expand" />
+
+    </LinearLayout>
+
+    <!--nearby amenities section-->
+    <LinearLayout
+        android:id="@+id/section_home_nearby"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:layout_below="@id/section_home_desc"
+        android:background="@drawable/home_list_section_bg">
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="nearby amenities section"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <!--request info section-->
+    <LinearLayout
+        android:id="@+id/section_home_requestInfo"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:layout_below="@id/section_home_nearby"
+        android:background="@drawable/home_list_section_bg">
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="request info section"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <!--extras section-->
+    <LinearLayout
+        android:id="@+id/section_home_extras"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:layout_below="@id/section_home_requestInfo"
+        android:background="@drawable/home_list_section_bg">
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="extras section"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+</merge>
