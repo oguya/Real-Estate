@@ -56,6 +56,7 @@
 
     <!--default vals-->
     <string name="empty_list">No commercial properties available at the moment.\nPlease try again later</string>
+    <string name="share">Share</string>
 
     <!--homes Activity -->
     <string name="title_activity_home">Homes</string>

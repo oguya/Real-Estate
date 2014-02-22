@@ -41,7 +41,7 @@
 
         <activity
             android:name="com.droid.keja.ui.HomesActivity"
-            android:label="@string/title_activity_commercial"
+            android:label="@string/title_activity_home"
             android:parentActivityName="com.droid.keja.ui.MainActivity">
 
             <!-- v 4.1 support -->

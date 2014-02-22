@@ -1,8 +1,11 @@
 package com.droid.keja.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,6 +19,7 @@ public class HomesActivity extends ActionBarActivity {
     private ActionBar actionBar;
     private final String LOG_TAG = "HomesActivity";
 
+    private ShareActionProvider shareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class HomesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_homes);
 
         actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -30,6 +35,12 @@ public class HomesActivity extends ActionBarActivity {
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.homes, menu);
+
+        //shareAction provider
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+        shareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+        shareActionProvider.setShareIntent(getDefaultShareIntent());
+
         return true;
     }
 
@@ -45,4 +56,9 @@ public class HomesActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private Intent getDefaultShareIntent(){
+        Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+        intent.setType("image/*");
+        return intent;
+    }
 }

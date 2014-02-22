@@ -23,6 +23,7 @@ public class CommercialActivity extends ActionBarActivity {
         setContentView(R.layout.activity_commercial);
 
         actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
