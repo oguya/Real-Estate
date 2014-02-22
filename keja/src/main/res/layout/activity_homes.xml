@@ -4,13 +4,106 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/list_background_pressed">
+    android:background="@color/homes_bg">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!--footer section-->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="homes activity"
-        android:id="@+id/textView"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:gravity="center"
+        android:background="@color/transparent">
+
+        <Button
+            android:layout_gravity="center"
+            android:id="@+id/request_info_BTN"
+            android:text="@string/request_info_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_style"/>
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/footer"
+        android:background="@color/homes_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/home_thumbnail_pic"
+                android:src="@drawable/home_big"
+                android:contentDescription="@string/img_content_desc"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:minHeight="250dp"
+                android:minWidth="250dp"
+                android:maxHeight="250dp"
+                android:maxWidth="250dp"
+                android:layout_alignParentTop="true"/>
+
+            <Button
+                android:id="@+id/img_count"
+                android:layout_below="@id/home_thumbnail_pic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:alpha=".8"
+                android:background="@drawable/img_counter_style"
+                android:text="@string/img_counter"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="-70dp"
+                android:layout_alignParentRight="true"/>
+
+            <!--section for listing type -> rent/sale-->
+            <LinearLayout
+                android:id="@+id/section_home_sale_rent"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/home_thumbnail_pic"
+                android:background="@drawable/home_list_section_bg"
+                >
+
+            </LinearLayout>
+
+
+            <!--section for directions & location -->
+            <LinearLayout
+                android:id="@+id/section_home_location"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/section_home_sale_rent"
+                android:background="@drawable/home_list_section_bg">
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+    
+
+
 </RelativeLayout>
