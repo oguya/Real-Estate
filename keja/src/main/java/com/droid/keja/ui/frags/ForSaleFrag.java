@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.droid.keja.R;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class ForSaleFrag extends Fragment {
     private Activity context;
     private ListView listView;
+    private TextView no_itemsTXT;
     private DBAdapter dbAdapter;
     private ArrayList<HomeSale> homeSaleList;
 
@@ -40,6 +42,7 @@ public class ForSaleFrag extends Fragment {
 
         //init ui here
         listView = (ListView)rootView.findViewById(R.id.home_sale_list);
+        no_itemsTXT = (TextView)rootView.findViewById(R.id.no_items_txt);
         return rootView;
     }
 
@@ -57,8 +60,14 @@ public class ForSaleFrag extends Fragment {
         dbAdapter = new DBAdapter(context);
         dbAdapter.open();
         homeSaleList = dbAdapter.getHomesSale();
-        listView.setAdapter(new HomeSaleAdapter(context, homeSaleList));
-        listView.setOnItemClickListener(listViewListener);
+
+        //check for empty lists
+        if(homeSaleList.size() <= 0){
+            no_itemsTXT.setVisibility(View.VISIBLE);
+        }else{
+            listView.setAdapter(new HomeSaleAdapter(context, homeSaleList));
+            listView.setOnItemClickListener(listViewListener);
+        }
     }
 
     private AdapterView.OnItemClickListener listViewListener = new AdapterView.OnItemClickListener() {

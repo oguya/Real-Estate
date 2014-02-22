@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.droid.keja.R;
@@ -28,6 +29,7 @@ public class ForRentFrag extends Fragment {
     Activity context;
     private final String LOG_TAG = "ForRentFrag";
     private ListView listView;
+    private TextView no_itemsTXT;
     public ArrayList<HomeRent> homeRentList;
     private DBAdapter dbAdapter;
 
@@ -45,6 +47,7 @@ public class ForRentFrag extends Fragment {
 
         //init ui here
         listView = (ListView)rootView.findViewById(R.id.home_rent_list);
+        no_itemsTXT = (TextView)rootView.findViewById(R.id.no_items_txt);
         return rootView;
     }
 
@@ -61,12 +64,16 @@ public class ForRentFrag extends Fragment {
 
         dbAdapter = new DBAdapter(context);
         dbAdapter.open();
-//        homeRentList = new ArrayList<HomeRent>();
         homeRentList = dbAdapter.getHomesRent();
 
-        listView = (ListView)context.findViewById(R.id.home_rent_list);
-        listView.setAdapter(new HomeRentAdapter(this.context, homeRentList));
-        listView.setOnItemClickListener(listListener);
+        //check for empty lists
+        if(homeRentList.size() <= 0){
+            no_itemsTXT.setVisibility(View.VISIBLE);
+        }else{
+            listView.setAdapter(new HomeRentAdapter(this.context, homeRentList));
+            listView.setOnItemClickListener(listListener);
+        }
+
     }
 
     private AdapterView.OnItemClickListener listListener = new AdapterView.OnItemClickListener() {

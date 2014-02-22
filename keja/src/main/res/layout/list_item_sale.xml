@@ -22,7 +22,7 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:contentDescription="@string/img_content_desc"
-            android:layout_gravity="center|fill" />
+            android:layout_gravity="center|fill_horizontal" />
 
         <RelativeLayout
             android:layout_gravity="center_vertical"
@@ -45,7 +45,7 @@
                 android:layout_below="@id/home_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
@@ -54,7 +54,7 @@
                 android:layout_below="@id/home_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
@@ -63,7 +63,7 @@
                 android:layout_below="@id/home_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/extras_list_item"/>
 
@@ -73,7 +73,7 @@
                 android:layout_below="@id/home_br_ba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/extras_list_item"/>
 

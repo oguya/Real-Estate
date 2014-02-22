@@ -2,12 +2,13 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:paddingTop="10dp"
+        android:padding="3dp"
         android:layout_height="wrap_content">
 
         <ImageView
@@ -20,16 +21,12 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:focusable="true"
-            android:clickable="true"
             android:contentDescription="@string/img_content_desc"
             android:layout_gravity="center|fill_horizontal" />
 
         <RelativeLayout
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
             android:layout_width="0dp"
             android:layout_weight=".6"
             android:layout_height="wrap_content">
@@ -48,7 +45,7 @@
                 android:layout_below="@id/property_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
             <TextView
@@ -57,7 +54,7 @@
                 android:layout_below="@id/property_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/extras_list_item"/>
 
@@ -67,7 +64,7 @@
                 android:layout_below="@id/property_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/extras_list_item"/>
 

@@ -54,4 +54,7 @@
     <string name="home_br_ba"> 2 br / 2 ba</string>
     <string name="home_type">Apartment</string>
 
+    <!--default vals-->
+    <string name="empty_list">No commercial properties available at the moment.\nPlease try again later</string>
+
 </resources>

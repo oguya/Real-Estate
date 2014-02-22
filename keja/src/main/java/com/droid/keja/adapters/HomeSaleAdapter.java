@@ -59,7 +59,7 @@ public class HomeSaleAdapter extends ArrayAdapter<HomeSale> {
         ViewHolder viewHolder = (ViewHolder)rowView.getTag();
 
         String home_name = homeSaleList.get(position).getName();
-        viewHolder.price_txt.setText(homeSaleList.get(position).getPrice());
+        viewHolder.price_txt.setText("KES "+homeSaleList.get(position).getPrice());
         viewHolder.name_txt.setText(home_name);
         viewHolder.home_img.setImageResource(R.drawable.item_pic);
         viewHolder.location_txt.setText(homeSaleList.get(position).getLocation());

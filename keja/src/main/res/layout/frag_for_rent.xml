@@ -15,4 +15,15 @@
         android:fadeScrollbars="true"
         android:listSelector="@drawable/search_list_selector"/>
 
+    <!-- no items list-->
+    <TextView
+        android:id="@+id/no_items_txt"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_list"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
 </RelativeLayout>

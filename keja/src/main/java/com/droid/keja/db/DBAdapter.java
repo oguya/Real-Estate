@@ -3,6 +3,7 @@ package com.droid.keja.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.webkit.WebChromeClient;
@@ -45,7 +46,13 @@ public class DBAdapter {
     public ArrayList<HomeRent> getHomesRent(){
         ArrayList<HomeRent> homeRentList = new ArrayList<HomeRent>();
         String sql = "SELECT * FROM "+ Constants.TBL_HOMES+" where for_sale = 0";
-        Cursor cursor = db.rawQuery(sql, null);
+        Cursor cursor;
+        try{
+            cursor = db.rawQuery(sql, null);
+        }catch (SQLiteException ex){
+            Log.e(LOG_TAG, "exception in SQL: "+sql+". "+ex.getMessage());
+            return homeRentList;
+        }
 
         if(cursor.moveToFirst()){
             do{
@@ -73,7 +80,13 @@ public class DBAdapter {
     public ArrayList<HomeSale> getHomesSale(){
         ArrayList<HomeSale> homeSaleList = new ArrayList<HomeSale>();
         String sql = "SELECT * FROM "+ Constants.TBL_HOMES+" where for_sale = 1";
-        Cursor cursor = db.rawQuery(sql, null);
+        Cursor cursor;
+        try{
+            cursor = db.rawQuery(sql, null);
+        }catch (SQLiteException ex){
+            Log.e(LOG_TAG, "exception in SQL: "+sql+". "+ex.getMessage());
+            return homeSaleList;
+        }
 
         if(cursor.moveToFirst()){
             do{
@@ -102,7 +115,27 @@ public class DBAdapter {
     //return all homes for rent
     public ArrayList<Commercial> getCommercialProperties(){
         ArrayList<Commercial> commercialList = new ArrayList<Commercial>();
+        String sql = "SELECT * FROM "+Constants.TBL_COMMERCIAL;
+        Cursor cursor;
+        try{
+            cursor = db.rawQuery(sql, null);
+        }catch (SQLiteException ex){
+            Log.e(LOG_TAG, "exception in SQL: "+sql+". "+ex.getMessage());
+            return commercialList;
+        }
 
+        if (cursor.moveToFirst()){
+            do{
+                Commercial commercial = new Commercial();
+
+                commercial.setName(cursor.getString(cursor.getColumnIndex("name")));
+                commercial.setLocation(cursor.getString(cursor.getColumnIndex("location")));
+                commercial.setSize(cursor.getString(cursor.getColumnIndex("size")));
+                commercial.setType(cursor.getString(cursor.getColumnIndex("type")));
+
+                commercialList.add(commercial);
+            }while(cursor.moveToNext());
+        }
         return commercialList;
     }
 
