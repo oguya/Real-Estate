@@ -57,4 +57,10 @@
     <!--default vals-->
     <string name="empty_list">No commercial properties available at the moment.\nPlease try again later</string>
 
+    <!--homes Activity -->
+    <string name="title_activity_home">Homes</string>
+
+    <!--commercial Activity -->
+    <string name="title_activity_commercial">Commercial Properties</string>
+
 </resources>

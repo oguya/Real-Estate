@@ -1,6 +1,7 @@
 package com.droid.keja.ui.frags;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.droid.keja.R;
 import com.droid.keja.adapters.HomeSaleAdapter;
 import com.droid.keja.db.DBAdapter;
 import com.droid.keja.model.HomeSale;
+import com.droid.keja.ui.HomesActivity;
 
 import java.util.ArrayList;
 
@@ -74,6 +76,12 @@ public class ForSaleFrag extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Toast.makeText(getActivity(), "item click: ", Toast.LENGTH_SHORT).show();
+
+            Bundle extras = new Bundle();
+//            extras.putString("name","testing");
+            Intent nextAct = new Intent(context, HomesActivity.class);
+            nextAct.putExtras(extras);
+            startActivity(nextAct);
         }
     };
 
