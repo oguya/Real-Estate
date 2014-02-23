@@ -69,7 +69,7 @@
     <string name="rent_lbl">Rent:</string>
     <string name="nearby_lbl">Nearby Amenities</string>
     <string name="nearby_amenities">Schools: 3\nNakumatt Junction Shopping Mall\nLow Crime Rate</string>
-    <string name="request_info_lbl">Request Info</string>
+    <string name="request_info_lbl">Provided By</string>
     <string name="info_agent_lbl">Realtor:</string>
     <string name="info_agent">Knight Frank</string>
     <string name="info_agent_no_lbl">Phone:</string>

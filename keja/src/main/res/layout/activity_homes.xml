@@ -21,6 +21,7 @@
         <Button
             android:layout_gravity="center"
             android:id="@+id/request_info_BTN"
+            android:onClick="btnClickListener"
             android:text="@string/request_info_btn"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
 
 
     <ScrollView
+        android:id="@+id/section_home_scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -141,6 +143,7 @@
 
                     <Button
                         android:id="@+id/location_direction_btn"
+                        android:onClick="btnClickListener"
                         android:drawableLeft="@drawable/directions"
                         android:text="@string/direction_lbl"
                         android:layout_weight=".4"
@@ -160,6 +163,7 @@
 
                     <Button
                         android:id="@+id/location_map_btn"
+                        android:onClick="btnClickListener"
                         android:drawableLeft="@drawable/map_route"
                         android:text="@string/map_lbl"
                         android:layout_weight=".4"
@@ -209,7 +213,7 @@
                     android:text="@string/home_listing_info_status"
                     android:textColor="@color/btn_stroke_pressed"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="180dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -226,7 +230,7 @@
                     android:id="@+id/home_prop_beds"
                     android:text="@string/home_listing_info_beds"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="180dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -243,7 +247,7 @@
                     android:id="@+id/home_prop_baths"
                     android:text="@string/home_listing_info_baths"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="180dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -260,7 +264,7 @@
                     android:id="@+id/home_prop_type"
                     android:text="@string/home_listing_info_type"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="180dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -333,6 +337,8 @@
             <LinearLayout
                 android:id="@+id/section_home_requestInfo"
                 android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
@@ -361,7 +367,7 @@
                     android:id="@+id/home_agent"
                     android:text="@string/info_agent"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="90dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -378,7 +384,7 @@
                     android:id="@+id/home_agent_no"
                     android:text="@string/info_agent_no"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="90dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -395,7 +401,7 @@
                     android:id="@+id/home_agent_email"
                     android:text="@string/info_agent_email"
                     android:layout_gravity="start"
-                    android:layout_marginTop="-25dp"
+                    android:layout_marginTop="-30dp"
                     android:layout_marginLeft="90dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_width="wrap_content"
@@ -411,6 +417,7 @@
 
                     <Button
                         android:id="@+id/info_agent_call_btn"
+                        android:onClick="btnClickListener"
                         android:drawableLeft="@drawable/call"
                         android:text="@string/info_agent_call"
                         android:layout_weight=".4"
@@ -429,6 +436,7 @@
 
                     <Button
                         android:id="@+id/info_agent_email_btn"
+                        android:onClick="btnClickListener"
                         android:drawableLeft="@drawable/email"
                         android:text="@string/info_agent_send_email"
                         android:layout_weight=".4"

@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,12 +28,16 @@ import org.w3c.dom.Text;
  */
 public class HomesActivity extends ActionBarActivity {
 
-    private ActionBar actionBar;
-    private final String LOG_TAG = "HomesActivity";
-
-    private ShareActionProvider shareActionProvider;
-    private TextView homeDesc_txt;
     private static boolean TXT_EXPANDED = false;
+    private static final String LOG_TAG = "HomesActivity";
+
+    private ActionBar actionBar;
+    private ShareActionProvider shareActionProvider;
+
+    private TextView homeDesc_txt;
+    private ScrollView requestInfoView;
+    private Button requestInfo_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +47,41 @@ public class HomesActivity extends ActionBarActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        initViews();
+
+    }
+
+    private void initViews(){
         homeDesc_txt = (TextView)findViewById(R.id.home_desc_preview);
+        requestInfoView = (ScrollView)findViewById(R.id.section_home_scrollView);
+        requestInfo_btn = (Button)findViewById(R.id.request_info_BTN);
+
+    }
+
+    public void btnClickListener(View view){
+        switch (view.getId()){
+            case R.id.request_info_BTN: //show request info section
+                requestInfoView.fullScroll(View.FOCUS_DOWN);
+                break;
+
+            case R.id.location_direction_btn: //show directions..directionsAPI
+                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.location_map_btn: //show home on map
+                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.info_agent_call_btn: //call realtor
+                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.info_agent_email_btn: //email realtor
+                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
     }
 
     public void ExpandTextView(View view){
