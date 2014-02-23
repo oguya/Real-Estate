@@ -1,13 +1,16 @@
 package com.droid.keja.ui;
 
 import android.animation.Animator;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +25,8 @@ import android.widget.Toast;
 import com.droid.keja.R;
 
 import org.w3c.dom.Text;
+
+import java.io.IOException;
 
 /**
  * Created by james on 22/02/14.
@@ -73,11 +78,19 @@ public class HomesActivity extends ActionBarActivity {
                 break;
 
             case R.id.info_agent_call_btn: //call realtor
-                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                try{
+                    call(getString(R.string.info_agent_no));
+                }catch (ActivityNotFoundException ex){
+                    Toast.makeText(this, "oops..something's wrong!", Toast.LENGTH_SHORT).show();
+                    Log.e(LOG_TAG, "Calling: "+ex.getMessage());
+                }
                 break;
 
             case R.id.info_agent_email_btn: //email realtor
-                Toast.makeText(this, "Coming soon...", Toast.LENGTH_SHORT).show();
+                String destEmail = getString(R.string.info_agent_email);
+                String subject = getString(R.string.info_agent_email_subject);
+                String message = getString(R.string.info_agent_email_compose);
+                sendEmail(destEmail, null, subject, message);
                 break;
             default:
                 break;
@@ -144,6 +157,23 @@ public class HomesActivity extends ActionBarActivity {
         Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
         intent.setType("image/*");
         return intent;
+    }
+
+    private void call(String phoneNo) throws ActivityNotFoundException{
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:"+phoneNo));
+        startActivity(callIntent);
+    }
+
+    private void sendEmail(String destEmail, String cc, String subject, String message){
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{destEmail});
+//        emailIntent.putExtra(Intent.EXTRA_CC, new String[]{cc});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+        emailIntent.setType("message/rfc822");
+        startActivity(Intent.createChooser(emailIntent, "Choose an Email Client"));
     }
 
     @Override
