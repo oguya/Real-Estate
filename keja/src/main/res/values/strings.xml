@@ -62,11 +62,33 @@
     <string name="title_activity_home">Homes</string>
     <string name="request_info_btn">Request Info</string>
     <string name="img_counter">1/5</string>
-    <string name="location_lbl">Located in:</string>
+    <string name="location_lbl">Located in</string>
     <string name="direction_lbl">Directions</string>
     <string name="map_lbl">View Map</string>
-    <string name="price_lbl">Price:</string>
+    <string name="price_lbl">Price</string>
     <string name="rent_lbl">Rent:</string>
+    <string name="nearby_lbl">Nearby Amenities</string>
+    <string name="nearby_amenities">Schools: 3\nNakumatt Junction Shopping Mall\nLow Crime Rate</string>
+    <string name="request_info_lbl">Request Info</string>
+    <string name="info_agent_lbl">Realtor:</string>
+    <string name="info_agent">Knight Frank</string>
+    <string name="info_agent_no_lbl">Phone:</string>
+    <string name="info_agent_no">+254 712345678</string>
+    <string name="info_agent_email_lbl">Email:</string>
+    <string name="info_agent_email">sales@knightfrank.com</string>
+    <string name="info_agent_call">Call</string>
+    <string name="info_agent_send_email">Email</string>
+    <string name="info_agent_compose">Hi, I\'d like to know more about the house at Jasmine Court...</string>
+    <string name="home_listing_info">Listing Info</string>
+    <string name="home_listing_info_status_lbl">Status:</string>
+    <string name="home_listing_info_status">For Sale</string>
+    <string name="home_listing_info_beds_lbl">Beds:</string>
+    <string name="home_listing_info_beds">3</string>
+    <string name="home_listing_info_baths_lbl">Baths:</string>
+    <string name="home_listing_info_baths">2</string>
+    <string name="home_listing_info_type_lbl">Property Type:</string>
+    <string name="home_listing_info_type">Apartment</string>
+
     <string name="home_desc">
         sodales sapien commodo faucibus. Vestibulum et feugiat enim. Donec
 semper mi et euismod tempor. Sed sodales eleifend mi id varius. Nam et ornare enim, sit amet gravida sapien. Quisque gravida et enim vel volutpat. Vivamus egestas ut felis a blandit. Vivamus fringilla

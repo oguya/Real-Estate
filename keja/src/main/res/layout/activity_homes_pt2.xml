@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<!--<merge xmlns:android="http://schemas.android.com/apk/res/android">-->
 
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include layout="@layout/activity_homes"/>
 
     <!-- home desc. section -->
     <LinearLayout
@@ -12,7 +18,7 @@
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
         android:padding="5dp"
-        android:layout_below="@id/section_home_location"
+        android:layout_below="@id/section_home_listing_info"
         android:background="@drawable/home_list_section_bg">
 
         <TextView
@@ -34,7 +40,7 @@
         android:id="@+id/section_home_nearby"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
@@ -43,9 +49,18 @@
         android:background="@drawable/home_list_section_bg">
 
         <TextView
-            android:layout_gravity="center"
-            android:text="nearby amenities section"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_gravity="start"
+            android:text="@string/nearby_lbl"
+            android:textSize="20sp"
+            android:textColor="@color/txt_lbl_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/home_nearby"
+            android:text="@string/nearby_amenities"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center" />
@@ -56,7 +71,7 @@
         android:id="@+id/section_home_requestInfo"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginTop="10dp"
@@ -65,35 +80,110 @@
         android:background="@drawable/home_list_section_bg">
 
         <TextView
-            android:layout_gravity="center"
-            android:text="request info section"
+            android:layout_gravity="start"
+            android:text="@string/request_info_lbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/txt_lbl_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_gravity="start"
+            android:text="@string/info_agent_lbl"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center" />
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_agent"
+            android:text="@string/info_agent"
+            android:layout_gravity="start"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="90dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_gravity="start"
+            android:text="@string/info_agent_no_lbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_agent_no"
+            android:text="@string/info_agent_no"
+            android:layout_gravity="start"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="90dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_gravity="start"
+            android:text="@string/info_agent_email_lbl"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_agent_email"
+            android:text="@string/info_agent_email"
+            android:layout_gravity="start"
+            android:layout_marginTop="-25dp"
+            android:layout_marginLeft="90dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- call /send email section -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp">
+
+            <Button
+                android:id="@+id/info_agent_call_btn"
+                android:drawableLeft="@drawable/call"
+                android:text="@string/info_agent_call"
+                android:layout_weight=".4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/locations_button_style"
+                />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"/>
+
+            <Button
+                android:id="@+id/info_agent_email_btn"
+                android:drawableLeft="@drawable/email"
+                android:text="@string/info_agent_send_email"
+                android:layout_weight=".4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|center"
+                android:drawablePadding="3dp"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="5dp"
+                android:background="@drawable/locations_button_style"
+                />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <!--extras section-->
-    <LinearLayout
-        android:id="@+id/section_home_extras"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginTop="10dp"
-        android:padding="5dp"
-        android:layout_below="@id/section_home_requestInfo"
-        android:background="@drawable/home_list_section_bg">
 
-        <TextView
-            android:layout_gravity="center"
-            android:text="extras section"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center" />
-
-    </LinearLayout>
-
-</merge>
+</RelativeLayout>
+<!--</merge>-->

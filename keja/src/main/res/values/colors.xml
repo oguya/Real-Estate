@@ -26,4 +26,5 @@
     <color name="homes_bg">#DCDCDC</color>
     <color name="img_counter_txt_color">#FFFFFF</color>
     <color name="img_counter_bg">#111111</color>
+    <color name="txt_lbl_bg">#626262</color>
 </resources>
