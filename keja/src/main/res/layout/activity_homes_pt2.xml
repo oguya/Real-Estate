@@ -23,6 +23,8 @@
             android:textSize="20sp"
             android:maxLines="2"
             android:ellipsize="end"
+            android:onClick="ExpandTextView"
+            android:clickable="true"
             android:drawableEnd="@drawable/expand" />
 
     </LinearLayout>
