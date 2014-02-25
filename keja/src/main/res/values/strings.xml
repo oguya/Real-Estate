@@ -106,4 +106,29 @@
 
     <!-- imageSlider activity -->
     <string name="title_activity_imageSlider">View Images</string>
+
+    <!-- search activity-->
+    <string name="search_reset_btn">Reset</string>
+    <string name="search_submit_btn">Find Homes</string>
+    <string name="search_TXT_lbl">Search</string>
+    <string name="search_hint_lbl">Ngong Road, Nairobi</string>
+    <string name="search_pricerange_lbl">Select a Price Range</string>
+    <string name="search_moreoptions_btn">Show more search filters</string>
+    <string name="search_hidemoreoptions_btn">Hide search filters</string>
+    <string name="search_moreoptions_lbl">More Options</string>
+    <string name="search_allproptype_lbl">All Property Types</string>
+    <string name="search_pets_lbl">Pets Allowed</string>
+    <string-array name="search_beds_arr">
+        <item>1 Bedroom</item>
+        <item>2 Bedrooms</item>
+        <item>3 Bedrooms</item>
+        <item>4 Bedrooms</item>
+        <item>5+ Bedrooms</item>
+    </string-array>
+    <string-array name="search_baths_arr">
+        <item>1 Bath</item>
+        <item>2 Baths</item>
+        <item>3 Baths</item>
+        <item>4+ Baths</item>
+    </string-array>
 </resources>
