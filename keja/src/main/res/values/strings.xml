@@ -104,4 +104,6 @@
     <!--commercial Activity -->
     <string name="title_activity_commercial">Commercial Properties</string>
 
+    <!-- imageSlider activity -->
+    <string name="title_activity_imageSlider">View Images</string>
 </resources>

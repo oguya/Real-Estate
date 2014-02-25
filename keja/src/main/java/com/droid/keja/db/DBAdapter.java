@@ -35,6 +35,9 @@ public class DBAdapter {
 
     public DBAdapter open(){
         db = dbHelper.getWritableDatabase();
+
+        //force foreign checks
+        db.execSQL(Constants.FORCE_FOREIGN_KEY_CHECKS);
         return this;
     }
 

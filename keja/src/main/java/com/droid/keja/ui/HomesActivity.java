@@ -64,7 +64,20 @@ public class HomesActivity extends ActionBarActivity {
     }
 
     public void btnClickListener(View view){
+        Intent imageSlider;
+
         switch (view.getId()){
+
+            case R.id.img_count: //show fullscreen image slider
+                 imageSlider = new Intent(this, ImageSliderActivity.class);
+                startActivity(imageSlider);
+                break;
+
+            case R.id.home_thumbnail_pic: //show full screen image slider
+                imageSlider = new Intent(this, ImageSliderActivity.class);
+                startActivity(imageSlider);
+                break;
+
             case R.id.request_info_BTN: //show request info section
                 requestInfoView.fullScroll(View.FOCUS_DOWN);
                 break;

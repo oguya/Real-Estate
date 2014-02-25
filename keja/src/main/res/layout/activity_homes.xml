@@ -45,6 +45,7 @@
             <ImageView
                 android:id="@+id/home_thumbnail_pic"
                 android:src="@drawable/home_big"
+                android:onClick="btnClickListener"
                 android:contentDescription="@string/img_content_desc"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
@@ -58,9 +59,10 @@
 
             <Button
                 android:id="@+id/img_count"
+                android:onClick="btnClickListener"
                 android:layout_below="@id/home_thumbnail_pic"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:alpha=".8"
                 android:background="@drawable/img_counter_style"
                 android:text="@string/img_counter"

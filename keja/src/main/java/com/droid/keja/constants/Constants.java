@@ -17,5 +17,5 @@ public class Constants {
     public static final String DB_DIR = "/data/data/com.droid.keja/databases/";
     public static final String TBL_HOMES = "homes";
     public static final String TBL_COMMERCIAL = "commercial";
-
+    public static final String FORCE_FOREIGN_KEY_CHECKS = "PRAGMA foreign_keys = ON";
 }
