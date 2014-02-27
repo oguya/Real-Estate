@@ -23,7 +23,8 @@ public class SearchRent extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View rootView = inflater.inflate(R.layout.frag_search_rent, container, false);
+//        View rootView = inflater.inflate(R.layout.frag_search_rent, container, false);
+        View rootView = inflater.inflate(R.layout.frag_search_sale, container, false);
 
         //init ui here
 
